@@ -42,7 +42,7 @@ export const contactsSlice = createSlice({
       state.contacts.splice(action.payload, 1);
     },
     filterContacts(state, action) {
-      state.filter = action.payload.toLowerCase().trim();
+      state.filter = action.payload;
     },
   },
 });

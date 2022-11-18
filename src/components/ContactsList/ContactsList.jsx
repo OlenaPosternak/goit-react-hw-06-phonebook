@@ -14,22 +14,14 @@ export const ContactsList = () => {
   const filter = useSelector(getFilter);
   const dispatch = useDispatch();
 
-  // const visibleContacts = contacts;
-  // console.log(visibleContacts)
-
-  // visibleContacts = contacts.filter(contact =>
-  //     contact.name.toLowerCase().includes(filter));
-
-  const getVisibleContacts = () => {
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter)
-    );
-  };
+  const visibleContacts = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(filter.toLowerCase().trim())
+  );
 
   return (
     <Container>
       <h2>My contacts</h2>
-      {getVisibleContacts().map(contact => (
+      {visibleContacts.map(contact => (
         <ListOfContact key={contact.id}>
           <ContactItem>
             {contact.name}: {contact.number}{' '}
